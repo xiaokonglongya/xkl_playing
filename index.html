@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+    <link rel="stylesheet" type="text/css" href="./css/ripple.css" />
+    <style>
+        :root {
+            --default: #606266;
+            --error: #f56c6c;
+            --success: #67c23a;
+        }
+
+        .img {
+            width: 500px;
+        }
+
+        .clear-button {
+            border: none;
+            padding: 0;
+            margin: 0;
+            background: none;
+        }
+
+        .button {
+            padding: 8px 16px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: var(--default);
+            border-radius: 3px;
+            font-weight: 500;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .default {
+            border-color: var(--default);
+            color: var(--default);
+        }
+
+        .success {
+            background-color: var(--success);
+            color: #fff;
+            border-color: var(--success);
+        }
+
+        .error {
+            background-color: var(--error);
+            color: #fff;
+            border-color: var(--error);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <img class="img" src="./image.jpeg" />
+        <div class="actions">
+            <button class="clear-button button default" data-type="default"> 默认图片</button>
+            <button class="clear-button button success" data-type="success"> 成功图片</button>
+            <button class="clear-button button error" data-type="error">错误图片</button>
+        </div>
+    </div>
+    <!-- 设置水波纹模块 -->
+    <script type="module">
+        import { setRipple } from './js/ripple.mjs'
+        window.useModule = {
+            ...window.useModule,
+            setRipple
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            let btns = document.getElementsByClassName('button')
+            for (let index = 0; index < btns.length; index++) {
+                const element = btns[index];
+                element.addEventListener('click', (event) => {
+                    window.useModule.setRipple(element,event)
+                })
+            }
+        }
+    </script>
+
+</body>
+
+</html>

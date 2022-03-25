@@ -1,0 +1,16 @@
+.ripple__round {
+  opacity: 0;
+  animation: ripple 1s 1;
+}
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: .8;
+  }
+  /* 波纹扩张 */
+
+  100% {
+    transform: scale(15);
+    opacity: 0;
+  }
+}
