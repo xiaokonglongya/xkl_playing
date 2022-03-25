@@ -2,10 +2,8 @@
  *  如何实现一个水波纹点击效果
  *  @author xkl
  */
-let start = undefined; // 记录动画执行时间
 
 export function setRipple(element, event) {
-  element.style.position = "relative";
   let el_bg_rgbcolor = getBgRbgColor(element);
   let maxLength = getElementMaxLength(element);
   let x = event.clientX - element.getBoundingClientRect().x - 10;
