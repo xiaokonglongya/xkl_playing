@@ -28,14 +28,16 @@
 
         .button {
             padding: 8px 16px;
-            border-width: 1px;
-            border-style: solid;
+            /* border-width: 1px; */
+            /* border-style: solid; */
             border-color: var(--default);
-            border-radius: 3px;
+            border-radius: 4px;
             font-weight: 500;
             cursor: pointer;
             overflow: hidden;
             position: relative;
+            user-select: none;
+            box-sizing: border-box;
         }
 
         .default {
@@ -80,7 +82,7 @@
             for (let index = 0; index < btns.length; index++) {
                 const element = btns[index];
                 element.addEventListener('click', (event) => {
-                    window.useModule.setRipple(element,event)
+                    window.useModule.setRipple(element, event)
                 })
             }
         }
